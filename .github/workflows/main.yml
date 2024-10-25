@@ -1,0 +1,28 @@
+name: crontab
+
+on:
+  schedule:
+    -  cron: " * * * * * "
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    -  name: checkout
+       uses: actions/checkout@v2
+
+    -  name: install 
+       uses: actions/setup-java@v3
+       with:
+         java-version: "17"
+         distribution: "adopt"
+
+    -  name: build project
+       run: mvn compile
+
+    -  name: test project
+       run: mvn test
+      
+
+        
