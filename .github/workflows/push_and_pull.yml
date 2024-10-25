@@ -1,0 +1,14 @@
+name: push_and_pull
+
+on: 
+  push:
+    branches:
+      -  main
+  pull_request:
+
+jobs:
+  checking_push_and_pull:
+      runs-on: ubuntu-latest
+      steps:
+        -  name: checkout
+           uses: actions/checkout@v2
